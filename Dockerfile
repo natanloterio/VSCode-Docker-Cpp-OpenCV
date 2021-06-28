@@ -2,10 +2,16 @@
 FROM ubuntu:latest
 
 RUN apt-get update
-RUN apt-get install -y git gcc-8 g++-8 cmake gdb gdbserver  && \
-    apt-get clean autoclean && \
-    apt-get autoremove -y && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get install -y 
+RUN apt-get install -y git 
+RUN apt-get install -y gcc-8 
+RUN apt-get install -y g++-8 
+RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y cmake 
+RUN apt-get install -y gdb 
+RUN apt-get install -y gdbserver
+RUN apt-get clean autoclean
+RUN apt-get autoremove -y
+RUN rm -rf /var/lib/apt/lists/*
     
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 999 \
  && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 999 \
