@@ -5,7 +5,7 @@
         {
             "label": "Start Docker Container",
             "type": "shell",
-            "command": "docker-compose -f compose.yml run --service-ports --name devenv dev-image bash",
+            "command": "docker-compose -f compose.yml run --service-ports --name devenv dev-image bash -v C:/Users/mauri/Documents/Dev/Docker/Compartilhada:/home/develop/eagle/img",
             "windows": {
                 "command": "docker-compose -f compose.win.yml run --service-ports --name devenv dev-image bash",
             },
@@ -142,9 +142,9 @@
         {
             "label": "Run Application (Docker)",
             "type": "shell",
-            "command": "docker exec -it devenv ${workspaceFolder}/build/bin/hello-world",
+            "command": "docker exec -it devenv ${workspaceFolder}/build/bin/hello-world /home/develop/eagle/img/fruits.jpg",
             "windows": {
-                "command": "docker exec -it devenv /home/develop/eagle/build/bin/hello-world",
+                "command": "docker exec -it devenv /home/develop/eagle/build/bin/hello-world /home/develop/eagle/img/fruits.jpg",
             },
             "problemMatcher": []
         },

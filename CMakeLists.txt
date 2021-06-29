@@ -2,6 +2,15 @@ cmake_minimum_required(VERSION 3.10)
 
 project(example)
 
+find_package( OpenCV REQUIRED )
+find_package( OpenGL )
+
+if(OPENGL_FOUND)
+  include_directories( ${OpenCV_INCLUDE_DIRS} ${OPENGL_INCLUDE_DIRS} )
+else()
+  include_directories( ${OpenCV_INCLUDE_DIRS} )
+endif()
+
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
 ################################################################################
@@ -60,6 +69,9 @@ enable_testing()
 
 # Use C++ 17
 set (CMAKE_CXX_STANDARD 17)
+
+set(CMAKE_C_COMPILER "/usr/bin/cc")
+set(CMAKE_CXX_COMPILER "/usr/bin/g++")
 
 # Optimize during linking stage
 set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE) # LTO

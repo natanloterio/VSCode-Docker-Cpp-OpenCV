@@ -34,4 +34,4 @@ target_compile_features(greet PUBLIC cxx_std_17)
 
 # Run CMake again in the `test` folder, to discover the CMakeLists.txt file that
 # adds the tests.
-add_subdirectory(test) 
+# add_subdirectory(test) 

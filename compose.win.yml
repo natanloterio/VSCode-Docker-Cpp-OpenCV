@@ -9,3 +9,4 @@ services:
     container_name: devenv
     volumes:
       - "./:/home/develop/eagle"
+      - "C:/Users/mauri/Documents/Dev/Docker/Compartilhada:/home/develop/eagle/img"
