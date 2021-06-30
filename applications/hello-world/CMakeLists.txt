@@ -1,4 +1,4 @@
-task start docker container# Add a new executable that is built from the given source file(s)
+# Add a new executable that is built from the given source file(s)
 add_executable(hello-world main.cpp)
 
 # Link the necessary libraries to the application

@@ -5,9 +5,9 @@
         {
             "label": "Start Docker Container",
             "type": "shell",
-            "command": "docker-compose -f compose.yml run --service-ports --name devenv dev-image bash -v C:/Users/mauri/Documents/Dev/Docker/Compartilhada:/home/develop/eagle/img",
+            "command": "docker-compose -f compose.yml run --rm -e DISPLAY=192.168.1.87:0.0 --service-ports --name devenv dev-image bash -v C:/Users/mauri/Documents/Dev/Docker/Compartilhada:/home/develop/eagle/img",
             "windows": {
-                "command": "docker-compose -f compose.win.yml run --service-ports --name devenv dev-image bash",
+                "command": "docker-compose -f compose.win.yml run --rm -e DISPLAY=192.168.1.87:0.0 --service-ports --name devenv dev-image bash",
             },
             "problemMatcher": [],
             "dependsOn": "Stop Docker Container", // Restart if already running
@@ -124,9 +124,9 @@
             "label": "Start GDB Server",
             "type": "shell",
             // not using -it so that it can be a preLaunchTask
-            "command": "docker exec -d devenv gdbserver localhost:2000  ${workspaceRoot}/build/bin/hello-world",
+            "command": "docker exec -d devenv gdbserver localhost:2000  ${workspaceRoot}/build/bin/grayScale",
             "windows": {
-                "command": "docker exec -d devenv gdbserver localhost:2000  /home/develop/eagle/build/bin/hello-world",
+                "command": "docker exec -d devenv gdbserver localhost:2000  /home/develop/eagle/build/bin/grayScale",
             },
             "problemMatcher": []
         },
@@ -142,9 +142,9 @@
         {
             "label": "Run Application (Docker)",
             "type": "shell",
-            "command": "docker exec -it devenv ${workspaceFolder}/build/bin/hello-world /home/develop/eagle/img/fruits.jpg",
+            "command": "docker exec -it devenv ${workspaceFolder}/build/bin/grayScale /home/develop/eagle/img/adrian.jpg",
             "windows": {
-                "command": "docker exec -it devenv /home/develop/eagle/build/bin/hello-world /home/develop/eagle/img/fruits.jpg",
+                "command": "docker exec -it devenv /home/develop/eagle/build/bin/grayScale /home/develop/eagle/img/adrian.jpg",
             },
             "problemMatcher": []
         },
